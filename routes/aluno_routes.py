@@ -1,6 +1,5 @@
 from flask import Blueprint, request
-from controllers.aluno_controllers import (
-    get_alunos, create_aluno, update_aluno, get_aluno_by_id, delete_aluno)
+from controllers.aluno_controllers import get_alunos, create_aluno, update_aluno, get_aluno_by_id, delete_aluno
 
 aluno_routes = Blueprint('aluno_routes', __name__)
 

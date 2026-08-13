@@ -5,7 +5,7 @@ class Aluno(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(80), nullable=False)
-    cpf = db.Column(db.String(14), nullable=False, unique=True)
+    cpf = db.Column(db.String(80), nullable=False, unique=True)
     idade = db.Column(db.Integer, nullable=False)
 
     def json(self):

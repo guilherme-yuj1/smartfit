@@ -1,7 +1,7 @@
 from models.aluno_models import Aluno
 from db import db
 import json
-from flask import make_response
+from flask import make_response, request
 
 def get_alunos():
     alunos = Aluno.query.all()
@@ -29,7 +29,8 @@ def get_aluno_by_id(aluno_id):
         return response
     else:
         response = make_response(
-            json.dumps({'mensagem': 'Aluno não encontrado.', 'dados': {}}, ensure_ascii=False),
+            json.dumps({'mensagem': 'Aluno não encontrado.',
+                       'dados': {}}, ensure_ascii=False),
             404
         )
         response.headers['Content-Type'] = 'application/json'
@@ -72,7 +73,8 @@ def update_aluno(aluno_id, aluno_data):
 
     if not aluno:
         response = make_response(
-            json.dumps({'mensagem': 'Aluno não encontrado.'}, ensure_ascii=False),
+            json.dumps({'mensagem': 'Aluno não encontrado.'},
+                       ensure_ascii=False),
             404
         )
         response.headers['Content-Type'] = 'application/json'
